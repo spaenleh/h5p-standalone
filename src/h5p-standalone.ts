@@ -52,6 +52,7 @@ export interface Options {
   contentUserData?: H5PContent["contentUserData"];
   saveFreq?: number | false;
   postUserStatistics?: boolean;
+  reportingIsEnabled?: boolean;
 
   ajax?: {
     setFinishedUrl?: string;
@@ -276,6 +277,7 @@ export class H5PStandalone {
       urlPath("./js/h5p-confirmation-dialog.js"),
       urlPath("./js/request-queue.js"),
       urlPath("./js/h5p-action-bar.js"),
+      urlPath("./js/h5p-tooltip.js"),
     ];
     let coreStyles = [urlPath("./styles/h5p.css")];
 

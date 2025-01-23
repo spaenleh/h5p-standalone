@@ -1,3 +1,42 @@
+# [3.8.0](https://github.com/tunapanda/h5p-standalone/compare/v3.7.1...v3.8.0) (2025-01-03)
+
+
+### Bug Fixes
+
+* copy the vendor images to dist folder ([3249f20](https://github.com/tunapanda/h5p-standalone/commit/3249f206816bd2532941d02d682856428929c622))
+* merge the player css files not explicitly requested ([f95352b](https://github.com/tunapanda/h5p-standalone/commit/f95352b9f5ffe48efa3f273db4740da7a355f092))
+
+
+### Features
+
+* add plugin to merge css (or any utf compatible content) ([60d4400](https://github.com/tunapanda/h5p-standalone/commit/60d4400e2479dfebaf8ac56a9d7e2d75e4280d30))
+* include the tooltip file into the frame bundle ([13ca602](https://github.com/tunapanda/h5p-standalone/commit/13ca602b60b05cf96f0d80caa3ddd40ba67d9588))
+* merge h5p with tooltip content ([6d6adb8](https://github.com/tunapanda/h5p-standalone/commit/6d6adb8af132ace88a867b713b9336eeeced38bf))
+* update h5p core vendor library to match upstream ([1bc80ba](https://github.com/tunapanda/h5p-standalone/commit/1bc80ba78bb7f94d85756450d9f6e48a7483da6b))
+
+## [3.7.1](https://github.com/tunapanda/h5p-standalone/compare/v3.7.0...v3.7.1) (2024-12-04)
+
+
+### Bug Fixes
+
+* allow url without tld to match regex path ([be65d7d](https://github.com/tunapanda/h5p-standalone/commit/be65d7d45bf40d098d138d70f0db4c9bdd0df772))
+* url tld should be between 2 and 63 xcters ([de578ec](https://github.com/tunapanda/h5p-standalone/commit/de578ec04cd6c3155357e39d0b110a96a39432c0))
+
+# [3.7.0](https://github.com/tunapanda/h5p-standalone/compare/v3.6.0...v3.7.0) (2024-07-16)
+
+
+### Bug Fixes
+
+* CORS issue while fetch assets ([5c33534](https://github.com/tunapanda/h5p-standalone/commit/5c335342b1a6a6ea49c6fa4295c88fa6acd76a5a)), closes [tunapanda/h5p-standalone#151](https://github.com/tunapanda/h5p-standalone/issues/151)
+* library not use assetsRequestFetchOptions ([4f3598b](https://github.com/tunapanda/h5p-standalone/commit/4f3598bac3d3e0b196646728b5b487a64cdf977d)), closes [tunapanda/h5p-standalone#151](https://github.com/tunapanda/h5p-standalone/issues/151)
+
+
+### Features
+
+* disable npm release ([4e69712](https://github.com/tunapanda/h5p-standalone/commit/4e69712f7f2e861cfd789e8889433ba132ca9d6b))
+* sample jsdocs ([f2d2771](https://github.com/tunapanda/h5p-standalone/commit/f2d2771364ffcf076f20ea209888830e5aa70f4c))
+* sample jsdocs ([0b39636](https://github.com/tunapanda/h5p-standalone/commit/0b39636e6a8e41fcddcefe7f299beab8e62218cd))
+
 # [3.6.0](https://github.com/tunapanda/h5p-standalone/compare/v3.5.1...v3.6.0) (2023-05-12)
 
 
