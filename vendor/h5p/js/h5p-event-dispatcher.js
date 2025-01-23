@@ -1,4 +1,4 @@
-var H5P = window.H5P = window.H5P || {};
+var H5P = (window.H5P = window.H5P || {});
 
 /**
  * The Event class for the EventDispatcher.
@@ -71,7 +71,6 @@ H5P.Event = function (type, data, extras) {
  */
 
 H5P.EventDispatcher = (function () {
-
   /**
    * The base of the event system.
    * Inherit this class if you want your H5P to dispatch events.
@@ -103,19 +102,18 @@ H5P.EventDispatcher = (function () {
      *   Optionally specify the this value when calling listener.
      */
     this.on = function (type, listener, thisArg) {
-      if (typeof listener !== 'function') {
-        throw TypeError('listener must be a function');
+      if (typeof listener !== "function") {
+        throw TypeError("listener must be a function");
       }
 
       // Trigger event before adding to avoid recursion
-      self.trigger('newListener', {'type': type, 'listener': listener});
+      self.trigger("newListener", { type: type, listener: listener });
 
-      var trigger = {'listener': listener, 'thisArg': thisArg};
+      var trigger = { listener: listener, thisArg: thisArg };
       if (!triggers[type]) {
         // First
         triggers[type] = [trigger];
-      }
-      else {
+      } else {
         // Append
         triggers[type].push(trigger);
       }
@@ -135,7 +133,7 @@ H5P.EventDispatcher = (function () {
      */
     this.once = function (type, listener, thisArg) {
       if (!(listener instanceof Function)) {
-        throw TypeError('listener must be a function');
+        throw TypeError("listener must be a function");
       }
 
       var once = function (event) {
@@ -159,7 +157,7 @@ H5P.EventDispatcher = (function () {
      */
     this.off = function (type, listener) {
       if (listener !== undefined && !(listener instanceof Function)) {
-        throw TypeError('listener must be a function');
+        throw TypeError("listener must be a function");
       }
 
       if (triggers[type] === undefined) {
@@ -169,7 +167,7 @@ H5P.EventDispatcher = (function () {
       if (listener === undefined) {
         // Remove all listeners
         delete triggers[type];
-        self.trigger('removeListener', type);
+        self.trigger("removeListener", type);
         return;
       }
 
@@ -177,7 +175,7 @@ H5P.EventDispatcher = (function () {
       for (var i = 0; i < triggers[type].length; i++) {
         if (triggers[type][i].listener === listener) {
           triggers[type].splice(i, 1);
-          self.trigger('removeListener', type, {'listener': listener});
+          self.trigger("removeListener", type, { listener: listener });
           break;
         }
       }
@@ -205,7 +203,7 @@ H5P.EventDispatcher = (function () {
       // Call all listeners
       for (var i = 0; i < handlers.length; i++) {
         var trigger = handlers[i];
-        var thisArg = (trigger.thisArg ? trigger.thisArg : this);
+        var thisArg = trigger.thisArg ? trigger.thisArg : this;
         trigger.listener.call(thisArg, event);
       }
     };
@@ -226,10 +224,9 @@ H5P.EventDispatcher = (function () {
       if (event === undefined) {
         return;
       }
-      if (event instanceof String || typeof event === 'string') {
+      if (event instanceof String || typeof event === "string") {
         event = new H5P.Event(event, eventData, extras);
-      }
-      else if (eventData !== undefined) {
+      } else if (eventData !== undefined) {
         event.data = eventData;
       }
 
@@ -240,11 +237,15 @@ H5P.EventDispatcher = (function () {
       call.call(this, event.type, event);
 
       // Call all * listeners
-      call.call(this, '*', event);
+      call.call(this, "*", event);
 
       // Bubble
-      if (event.getBubbles() && self.parent instanceof H5P.EventDispatcher &&
-          (self.parent.trigger instanceof Function || typeof self.parent.trigger === 'function')) {
+      if (
+        event.getBubbles() &&
+        self.parent instanceof H5P.EventDispatcher &&
+        (self.parent.trigger instanceof Function ||
+          typeof self.parent.trigger === "function")
+      ) {
         self.parent.trigger(event);
       }
 

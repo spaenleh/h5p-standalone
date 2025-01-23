@@ -3,29 +3,23 @@ name: CI
 on:
   pull_request:
     branches:
-      - master
-      - v2.x
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node: [ 14, 16, 18 ]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version:  ${{ matrix.node }}
-          cache: 'yarn'
+          node-version: 20
+          cache: "yarn"
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
 
       - name: Build project
         run: yarn build

@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "incremental": true,
-    "outDir": "dist",
+    "outDir": "h5p-integrationintegration",
     "removeComments": true,
     "module": "esnext",
     "target": "es5",
@@ -11,18 +11,13 @@
     "sourceMap": false,
     "alwaysStrict": true,
     "allowJs": false,
-   "declaration": true,
+    "declaration": true,
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "DOM"
-    ],
-    "types": [
-      "node"
-    ]
+    "lib": ["DOM", "ES2015"]
   },
   "exclude": [
     "node_modules",
-    "dist/*",
+    "h5p-integration/*tegration/*",
     ".idea/*",
     ".git/*"
   ]
